@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="http://moise.sourceforge.net/xml/os.xsl" type="text/xsl" ?>
+
+<organisational-specification
+    id="sync_scheme"
+    os-version="0.8"
+
+    xmlns='http://moise.sourceforge.net/os'
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:schemaLocation='http://moise.sourceforge.net/os
+                        http://moise.sourceforge.net/xml/os.xsd' >
+
+<functional-specification>
+    <scheme id="scheme1">
+        <goal id="goal1">
+          <plan operator="parallel">
+            <goal id="goal2">
+              <plan operator="sequence">
+                <goal id="registerPoints">
+                  <argument id="N" value="6"/>
+                  <argument id="Lat1" value="-27.604508"/>
+                  <argument id="Lon1" value="-48.521061"/>
+                  <argument id="Lat2" value="-27.604635"/>
+                  <argument id="Lon2" value="-48.521165"/>
+                  <argument id="Lat3" value="-27.604661"/>
+                  <argument id="Lon3" value="-48.521090"/>
+                  <argument id="Lat4" value="-27.604515"/>
+                  <argument id="Lon4" value="-48.520987"/>
+                  <argument id="Lat5" value="-27.604531"/>
+                  <argument id="Lon5" value="-48.520914"/>
+                  <argument id="Lat6" value="-27.604705"/>
+                  <argument id="Lon6" value="-48.520996"/>
+                </goal>
+                <goal id="followRoute"/>
+                <goal id="returnHomeScout"/>
+              </plan>
+            </goal>
+            <goal id="goal3">
+              <plan operator="sequence">
+                <goal id="rescueDuty"/>
+                <goal id="returnHomeCourier"/>
+              </plan>
+            </goal>
+            <goal id="goal4">
+              <plan operator="sequence">
+                <goal id="followRoute"/>
+                <goal id="returnHomeCourier"/>
+              </plan>
+            </goal>
+          </plan>
+        </goal>
+
+        <mission id="missionScout" min="1" max="1">
+            <goal id="registerPoints"/>
+            <goal id="followRoute"/>
+            <goal id="returnHomeScout"/>
+        </mission>
+        <mission id="missionCourier" min="1" max="1">
+            <goal id="rescueDuty"/>
+            <goal id="returnHomeCourier"/>
+        </mission>
+    </scheme>
+</functional-specification>
+
+<normative-specification>
+    <properties>
+        <property id="default_management"  value="ignore" />
+    </properties>
+</normative-specification>
+
+</organisational-specification>
