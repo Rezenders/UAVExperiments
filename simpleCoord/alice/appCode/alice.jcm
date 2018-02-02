@@ -1,0 +1,12 @@
+mas alice {
+
+    agent alice {
+		ag-arch: EJasonArch // architecture
+        verbose: 1
+    }
+
+    // agent source path
+    asl-path: src/agt
+              src/agt/inc
+
+}
